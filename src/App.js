@@ -1,21 +1,13 @@
+import React from 'react';
+import ItemListContainer from './Components/NavBar/ItemListContainer/ItemListContainer';
+import NavBar from "./Components/NavBar/NavBar";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-    
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <ItemListContainer greetings="Alzstore, página especializada en venta de productos para pacientes con Alzheimer"/>
     </div>
   );
 }
