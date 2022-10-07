@@ -1,5 +1,8 @@
 import React from 'react'
-import CartWidget from './ItemListContainer/CartWidget'
+import CartWidget from '../ItemListContainer/CartWidget'
+import {Link} from "react-router-dom";
+
+
 
 function NavBar() {
   return (
