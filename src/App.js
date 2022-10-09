@@ -20,9 +20,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<ItemListContainer greetings="Alzstore, página especializada en venta de productos para pacientes con Alzheimer"/>} />
-        {/* Descomentar lo siguiente cuando termine de ver la clase 3: <Route path="/productos/:id" element={<ItemDetailContainer />}></Route> */}
-        {/* Descomentar lo siguiente cuando termine de ver la clase 3: <Route path="*" element={<h4>Página no encontrada, Error 404}></Route> */}
-        {/* Descomentar lo siguiente cuando termine de ver la clase 3: <Route path="/category/:categoryID" element={<ItemListContainer /></Route> */}
+        <Route path="*" element={<h4>Página no encontrada, Error 404"</h4>} />
+        <Route path="/category/:categoryID" element={<ItemListContainer />} />
       </Routes>
     </BrowserRouter>
     </div>
