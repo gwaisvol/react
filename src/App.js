@@ -2,7 +2,7 @@ import { dom } from '@fortawesome/fontawesome-svg-core';
 import React from 'react';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
 import NavBar from "./Components/NavBar/NavBar";
-import Card from './Components/Card/Card';
+import Item from './Components/Item/Item';
 
 //1-Importo los componentes de react-router-dom
 import {BrowserRouter, Route, Routes} from "react-router-dom";

@@ -1,27 +1,30 @@
-import React from 'react'
-import Card from "../Card/Card";
+import React, {useState, useEffect } from "react";
+import Item from "../Item/Item";
 import FlexWrapper from "../FlexWrapper/FlexWrapper";
+import {getProductos} from '../mockAPI/mockAPI';
+import ItemList from "./ItemList";
+import ItemCount from "../ItemCount/ItemCount";
 let misEstilos = { backgroundColor: "lightblue"};
 
+
 function ItemListContainer(props) {
+  const [productosList, setProductosList] = useState([]);
+
+  useEffect(
+    () => {
+      getProductos().then((data) => {
+       setProductosList(data);
+     });
+    },[]
+    )
+
   return (
   <>
   <h1>{props.greetings}</h1>
-    <FlexWrapper>
-    <Card
-      img="https://www.seoptimer.com/es/blog/wp-content/uploads/2020/06/uiux.png"
-      title="UX/UI"
-      detail="Lorem Ipsum"
-      price="100"
-    />
-    <Card
-      img="https://blog.desafiolatam.com/wp-content/uploads/2019/04/react-galaxia.png"
-      title="React"
-      detail="Lorem Ipsum"
-      price="150"
-    />
-  </FlexWrapper>
-</>
+  <ItemList productosList={productosList}/>
+  <hr/>
+  <ItemCount text={"Agregar al carrito"} initial={1} stock={22} />
+ </>
   )
 }
 

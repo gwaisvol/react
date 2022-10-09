@@ -1,16 +1,13 @@
 import React from "react";
+import { useState } from "react";
 import "./button.css";
 
 
 function Button(props) {
-let colorBtn = {
-  backgroundColor: "rgb (97, 50, 150)"
-}
+  const [colorBtn, setColorBtn] = useState({backgroundColor: "rgb (97, 50, 150)"})
 
 function handleClick(){
-  colorBtn = {
-    backgroundColor : "rgb(157 , 150, 00)"
-  };
+  setColorBtn({backgroundColor : "rgb(255 , 50, 50)"});
 }
 
 return(
