@@ -8,6 +8,7 @@ function ItemList(props) {
 <FlexWrapper>
   { props.productosList.map( (producto) => { 
  return <Item 
+ id={producto.id}
  key={producto.id}
  title={producto.title}
  img={producto.img}

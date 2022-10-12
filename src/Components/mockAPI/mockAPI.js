@@ -83,6 +83,21 @@ export function getProductos(){
    (resolve) => {
     setTimeout( ()=> resolve(data), 2000 );
    });
+}
    
-   }
+export function getOne(id){
+    return new Promise(
+   (resolve) => {
+    setTimeout( ()=> resolve(data.find((item)=> item.id === Number(id))), 2000 );
+   });
+
+}
+   
+export function getCategory(categoryid){
+    return new Promise(
+   (resolve) => {
+    setTimeout( ()=> resolve(data.filter((item)=> item.category === categoryid)), 2000 );
+   });
+
+}
    

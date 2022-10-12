@@ -1,6 +1,7 @@
 import { dom } from '@fortawesome/fontawesome-svg-core';
 import React from 'react';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
+import { ItemDetailContainer } from './Components/ItemDetailContainer/ItemDetailContainer';
 import NavBar from "./Components/NavBar/NavBar";
 import Item from './Components/Item/Item';
 
@@ -20,8 +21,9 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<ItemListContainer greetings="Alzstore, página especializada en venta de productos para pacientes con Alzheimer"/>} />
-        <Route path="*" element={<h4>Página no encontrada, Error 404"</h4>} />
         <Route path="/category/:categoryID" element={<ItemListContainer />} />
+        <Route path="/item/:id" element={<ItemDetailContainer />} />
+        <Route path="*" element={<h4>Página no encontrada, Error 404"</h4>} />
       </Routes>
     </BrowserRouter>
     </div>
