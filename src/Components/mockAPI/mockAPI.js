@@ -2,7 +2,7 @@ const data = [
 {
 id: 1,
 title: "Rompecabezas",
-img: "../img/Alarma.jpg",
+img: "../img/rompecabezas.jpg",
 price: 10500,
 expired: true,
 detail: "Alarma para personas mayores",

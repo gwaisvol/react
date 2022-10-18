@@ -1,14 +1,30 @@
 import React from 'react'
+import { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
+import { useContext } from 'react';
+import { cartContext } from "../../context/cartContext"
 
-export const ItemDetail = ({producto}) => {
+export function ItemDetail ({ producto }){
+const [count,setCount] = useState(0);
+const {addToCart,removeItem} = useContext(cartContext);
+
+  function handleAddToCart(count){
+    addToCart(producto,count)
+    setCount(count);
+  }
   return (
     <div>
       <img src={producto.img} alt={producto.title}/>
       <h2>{producto.title}</h2>
       <p>{producto.detail}</p>
       <p>${producto.price}</p>   
-      <ItemCount initial={1} stock={producto.stock} text={'Comprar'}/>
-    </div>
-  )
+      {count === 0 ? (
+      <ItemCount onAddToCart={handleAddToCart} initial={1} stock={producto.stock} text={'Agregar al carrito'}/>
+      ) : (
+        <a href="/cart">Ver el carrito</a>
+      )}
+      <button onClick={()=> removeItem(producto.id)}>Eliminar</button>
+      </div>
+  );
 }
+
