@@ -12,6 +12,8 @@ const {addToCart,removeItem} = useContext(cartContext);
     addToCart(producto,count)
     setCount(count);
   }
+  
+  if (producto)
   return (
     <div>
       <img src={producto.img} alt={producto.title}/>
@@ -26,5 +28,7 @@ const {addToCart,removeItem} = useContext(cartContext);
       <button onClick={()=> removeItem(producto.id)}>Eliminar</button>
       </div>
   );
+ 
+  return <h2>Cargando ...</h2>;
 }
 
