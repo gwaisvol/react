@@ -3,6 +3,7 @@ import { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import { useContext } from 'react';
 import { cartContext } from "../../context/cartContext"
+import {Link} from 'react-router-dom';
 
 export function ItemDetail ({ producto }){
 const [count,setCount] = useState(0);
@@ -13,7 +14,6 @@ const {addToCart,removeItem} = useContext(cartContext);
     setCount(count);
   }
   
-  if (producto)
   return (
     <div>
       <img src={producto.img} alt={producto.title}/>
@@ -23,12 +23,10 @@ const {addToCart,removeItem} = useContext(cartContext);
       {count === 0 ? (
       <ItemCount onAddToCart={handleAddToCart} initial={1} stock={producto.stock} text={'Agregar al carrito'}/>
       ) : (
-        <a href="/cart">Ver el carrito</a>
+        <Link to={`/cart`}>Ver el carrito</Link>
       )}
       <button onClick={()=> removeItem(producto.id)}>Eliminar</button>
       </div>
   );
  
-  return <h2>Cargando ...</h2>;
 }
-

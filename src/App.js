@@ -1,4 +1,4 @@
-import { dom } from '@fortawesome/fontawesome-svg-core';
+
 import React from 'react';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './Components/ItemDetailContainer/ItemDetailContainer';
@@ -8,6 +8,7 @@ import { CartContextProvider } from './context/cartContext';
 
 //1-Importo los componentes de react-router-dom
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import CartView from './Components/CartView/CartView';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
         <Route path="/" element={<ItemListContainer greetings="Alzstore, página especializada en venta de productos para pacientes con Alzheimer"/>} />
         <Route path="/category/:categoryID" element={<ItemListContainer />} />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
-        <Route path="/cart" element={<h1>Cart</h1>} />
+        <Route path="/cart" element={<CartView/>} />
         <Route path="*" element={<h4>Página no encontrada, Error 404"</h4>} />
       </Routes>
     </BrowserRouter>

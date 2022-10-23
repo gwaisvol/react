@@ -3,6 +3,7 @@ import {getProductos} from '../mockAPI/mockAPI';
 import { useParams } from "react-router-dom";
 import {getCategory} from '../mockAPI/mockAPI';
 import ItemList from "./ItemList";
+import { Loader} from "../Loader/Loader"
 let misEstilos = { backgroundColor: "lightblue"};
 
 
@@ -10,6 +11,7 @@ function ItemListContainer(props) {
   const [productosList, setProductosList] = useState([]);
   const {categoryID}= useParams()
   useEffect(() => {
+    setProductosList([]);
     if(categoryID) {
       getCategory(categoryID).then((data)=> setProductosList(data))
      }else{
@@ -22,9 +24,12 @@ function ItemListContainer(props) {
   return (
   <>
   <h1>{props.greetings}</h1>
+  { productosList.length ?
   <ItemList productosList={productosList}/>
+  :
+  <Loader/>
+  }
   <hr/>
-  {/*<ItemCount text={"Agregar al carrito"} initial={1} stock={22} />*/}
  </>
   )
 }

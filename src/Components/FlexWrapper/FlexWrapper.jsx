@@ -1,12 +1,10 @@
 import React from "react";
 import "./flexwrapper.css";
 
-function FlexWrapper(props) {
-  return (
-    <div>
-      <div className="flex">{props.children}</div>
-    </div>
-  );
-}
-
-export default FlexWrapper;
+export  function FlexWrapper(props) {
+  const classnameDiv = props.row === true? "FlexWrapper flex_rows" : "FlexWrapper flex_cols"
+  
+  return <div className={classnameDiv}>{props.children}</div>;
+  }
+  
+  export default FlexWrapper
