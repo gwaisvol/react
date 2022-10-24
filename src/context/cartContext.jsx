@@ -35,7 +35,7 @@ const getTotalPrice = () => {
              setCart(newCart);
             }
 
-    const isInCart = (id) => cart.find(item => item.id ==id) ? true: false;
+    const isInCart = (id) => cart.find(item => item.id === id) ? true: false;
 
     return (
         <>

@@ -1,10 +1,10 @@
 import React, {useState, useEffect } from "react";
-import {getProductos} from '../mockAPI/mockAPI';
 import { useParams } from "react-router-dom";
 import {getCategory} from '../mockAPI/mockAPI';
 import ItemList from "./ItemList";
 import { Loader} from "../Loader/Loader"
-let misEstilos = { backgroundColor: "lightblue"};
+import { getProductos } from "../../services/firebase";
+
 
 
 function ItemListContainer(props) {
