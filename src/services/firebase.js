@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDbXRFNuKLHPny_xiu_bAn0WMs95e5lCO8",
@@ -27,6 +27,13 @@ export async function getProductos() {
 }
 
 
-export function getOne(id) {}
+export async function getOne(id) {
+  const docRef = doc (db, "productos", id);
+  const docResult = await getDoc(docRef);
+  return docResult.data();
+
+}
+
+
 export function getCategory(categoryid) {}
 export default FirebaseApp;
