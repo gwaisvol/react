@@ -1,9 +1,9 @@
 import React, {useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {getCategory} from '../mockAPI/mockAPI';
+import {getCategory} from '../../services/firebase';
 import ItemList from "./ItemList";
 import { Loader} from "../Loader/Loader"
-import { getProductos } from "../../services/firebase";
+import { getProductos,  } from "../../services/firebase";
 
 
 

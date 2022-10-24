@@ -85,13 +85,21 @@ export function getProductos(){
    });
 }
    
-export function getOne(id){
-    return new Promise(
-   (resolve) => {
-    setTimeout( ()=> resolve(data.find((item)=> item.id === Number(id))), 2000 );
+export function getOne(id) {
+    return new Promise((resolve,reject) => {
+    let productoReq = data.find ((producto) => {
+     return producto.id == Number(id);
+    });
+    setTimeout(() => {
+     if (productoReq === undefined)
+     reject(new Error("Producto inexistente"));
+     else {
+    resolve(productoReq)
+     }
+   }, 2000
+   );
    });
-
-}
+   }
    
 export function getCategory(categoryid){
     return new Promise(
