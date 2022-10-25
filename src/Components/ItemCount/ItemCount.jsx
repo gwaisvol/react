@@ -28,7 +28,6 @@ export default function ItemCount({stock, initial, text, onAddToCart}) {
    <button onClick={()=> {onAddToCart(count)}} >{text}</button>
    </div>
    </FlexWrapper>
-   <button>{text}</button>
    </div>
  );
  }

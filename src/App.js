@@ -3,8 +3,10 @@ import React from 'react';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './Components/ItemDetailContainer/ItemDetailContainer';
 import NavBar from "./Components/NavBar/NavBar";
-import Item from './Components/Item/Item';
 import { CartContextProvider } from './context/cartContext';
+import { sendDataToFirebase } from './services/firebase';
+
+
 
 //1-Importo los componentes de react-router-dom
 import {BrowserRouter, Route, Routes} from "react-router-dom";
