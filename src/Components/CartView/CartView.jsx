@@ -5,10 +5,12 @@ import { createBuyOrder } from '../../services/firebase';
 import Button from '../Button/Button';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
+import { useNavigate } from "react-router-dom";
 
 
 
 function CartView() {
+const navigate = useNavigate();
 const { cart , removeItem, getTotalPrice } = useContext(cartContext);
 function handleCheckout(){
     const buyerData = {
@@ -24,12 +26,14 @@ function handleCheckout(){
     }
 
     createBuyOrder(orderData).then ( respuesta => {
-   {/*  Swal.fire({
+     Swal.fire({
           title: 'Compra finalizada!',
           text: 'Compra finalizada. Que la disfrutes',
-          icon: 'cart',
-          confirmButtonText: 'Cool'
-        })  */}
+          icon: 'success',
+          confirmButtonText: 'Entendido'
+        }).then( result =>{
+            navigate("/");
+        })  
     } );
         
 }
