@@ -12,11 +12,7 @@ function CartWidget() {
     <div>
         <FontAwesomeIcon icon={faBagShopping}/>
         <a href="/cart">
-        <span>
-{
- getTotalItemCount() > 0 && getTotalItemCount()
-}
-</span>
+        <span>{getTotalItemCount() > 0 && getTotalItemCount()}</span>
         </a>
     </div>
   )

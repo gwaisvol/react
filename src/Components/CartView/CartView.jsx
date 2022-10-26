@@ -1,42 +1,17 @@
 import React,{useContext} from 'react';
 import { cartContext } from "../../context/cartContext"
-import {FlexWrapper} from '../FlexWrapper/FlexWrapper';
-import { createBuyOrder } from '../../services/firebase';
-import Button from '../Button/Button';
-import Swal from 'sweetalert2/dist/sweetalert2.js'
-import 'sweetalert2/src/sweetalert2.scss'
-import { useNavigate } from "react-router-dom";
+import {FlexWrapper} from "../FlexWrapper/FlexWrapper";
+import { UserForm }from "../UserForm/UserForm";
+
 
 
 
 function CartView() {
-const navigate = useNavigate();
+
 const { cart , removeItem, getTotalPrice } = useContext(cartContext);
-function handleCheckout(){
-    const buyerData = {
-    name: "German",
-    email:"german_waisvol@hotmail.com",
-    phone: "1111111"
-    }
 
-    const orderData = {
-        buyerData: buyerData,
-        cart: cart,
-        total: getTotalPrice(),
-    }
 
-    createBuyOrder(orderData).then ( respuesta => {
-     Swal.fire({
-          title: 'Compra finalizada!',
-          text: 'Compra finalizada. Que la disfrutes',
-          icon: 'success',
-          confirmButtonText: 'Entendido'
-        }).then( result =>{
-            navigate("/");
-        })  
-    } );
-        
-}
+
 return <FlexWrapper>
 { cart.map( producto => (
  <div key={producto.id}>
@@ -47,9 +22,11 @@ return <FlexWrapper>
 <button onClick={()=>removeItem(producto.id)}>X</button>
 </div>
 ))}
-<div><h2>Precio total de la compra:{getTotalPrice()} </h2></div>
-<Button onClick={handleCheckout}>Finalizar Compra</Button>
+
+<UserForm cart={cart} getTotalPrice={getTotalPrice} />
 </FlexWrapper>
 }
+
+
 
 export default CartView
