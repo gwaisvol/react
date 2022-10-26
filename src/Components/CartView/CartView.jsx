@@ -1,7 +1,7 @@
 import React,{useContext} from 'react';
 import { cartContext } from "../../context/cartContext"
 import {FlexWrapper} from "../FlexWrapper/FlexWrapper";
-import { UserForm }from "../UserForm/UserForm";
+import  UserForm  from "../UserForm/UserForm"
 
 
 
