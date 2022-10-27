@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { createBuyOrder } from "../../services/firebase";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 import InputForm from "./InputForm"
+import { cartContext } from "../../context/cartContext"
 
 export default function UserForm({ cart, getTotalPrice }) {
   const navigate = useNavigate();
-
+  const { clearCart } = useContext(cartContext);
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -41,6 +42,7 @@ export default function UserForm({ cart, getTotalPrice }) {
         confirmButtonText: "Genial!",
       }).then((result) => {
         navigate(`/`);
+        clearCart();
       });
     });
   }
