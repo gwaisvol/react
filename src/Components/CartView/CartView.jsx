@@ -28,7 +28,7 @@ return (
 ))}
 
 <UserForm cart={cart} getTotalPrice={getTotalPrice} />
-<button onClick={()=>clearCart}>Vaciar carrito</button>
+<button onClick={()=>clearCart()}>Vaciar carrito</button>
 </FlexWrapper>
 }
 </>

@@ -17,8 +17,9 @@ function CartContextProvider (props) {
 
 }
 
-const clearCart = () => setCart([]);
-
+const clearCart = () => {
+    setCart([]);
+}
 
 const getTotalPrice = () => {
     return cart.reduce((prev, act) => prev + act.count * act.price, 0);
