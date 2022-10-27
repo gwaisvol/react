@@ -35,12 +35,12 @@ export default function UserForm({ cart, getTotalPrice }) {
 
     createBuyOrder(orderData).then((respuesta) => {
       Swal.fire({
-        title: "Gracias!",
-        text: "Gracias por tu compra",
+        title: "Compra generada!",
+        text: "Gracias, en breve recibirá su compra",
         icon: "success",
-        confirmButtonText: "Cool",
+        confirmButtonText: "Genial!",
       }).then((result) => {
-        navigate(`/thankyou/${respuesta}`);
+        navigate(`/`);
       });
     });
   }

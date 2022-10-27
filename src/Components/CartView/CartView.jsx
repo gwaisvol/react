@@ -8,11 +8,15 @@ import  UserForm  from "../UserForm/UserForm"
 
 function CartView() {
 
-const { cart , removeItem, getTotalPrice } = useContext(cartContext);
+const { cart , removeItem, getTotalPrice, clearCart } = useContext(cartContext);
 
 
 
-return <FlexWrapper>
+return (
+<>
+{cart.length ===0 ? <p>carrito vacio</p>
+:
+<FlexWrapper>
 { cart.map( producto => (
  <div key={producto.id}>
  <h2>{producto.title}</h2>
@@ -24,9 +28,12 @@ return <FlexWrapper>
 ))}
 
 <UserForm cart={cart} getTotalPrice={getTotalPrice} />
+<button onClick={()=>clearCart}>Vaciar carrito</button>
 </FlexWrapper>
 }
+</>
+)
 
-
+}
 
 export default CartView
